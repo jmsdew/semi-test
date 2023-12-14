@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>학교종이 땡땡땡</title>
+  <link rel="stylesheet" href="style.css" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+  <!--------------------------------------제목 및 네비----------------------------------------------->
+   <header class="navbox">
+    <nav>
+      <h1>
+        <button class="main">
+          <a href="#">학교종이 땡땡땡</a>
+        </button>
+      </h1>
+      <ul>
+        <li>
+          <button class="ranking">
+            <a href="#">랭킹</a>
+          </button>
+        </li>
+        <li>
+          <button class="calendar">
+            <a href="#">캘린더</a>
+          </button>
+        </li>
+        <li>
+          <button class="student-management">
+            <a href="#">학생관리</a>
+          </button>
+        </li>
+        <li>
+          <button class="mypage">
+            <a href="#">마이페이지</a>
+          </button>
+        </li>
+      </ul>
+    </nav>
+   </header>
+<!------------------------------------------사이드 시간표---------------------------------------------------->
+<aside>
+  <div class="time-line">
+    <div class="class-box">
+      <div class="first-class">
+        <p id="timeFont">1교시 09:00</p>
+      </div>
+      <div class="first-check" id="showHide"><i class="bi-heart" style="font-size:3rem; color: red; cursor: pointer;"></i></div>
+    </div>
+      <button id="plusButton" >시간표 추가</button>
+  </div>
+</aside>
+<!----------------------------------------------좌석 화면---------------------------------------------------->
+<article class="main-view">
+  <section class="stop-watch">
+    <div class="period">   
+      <!-- 교시 정보 표시 -->
+      <div class="period-text">수업 시작</div>
+    </div>
+    <div class="timer">
+      <h2>
+          <div id="viewTimer"></div>
+      </h2>
+  </div>
+  </section>
+  
+  <section class="school-info">
+    
+  </section>
+  
+  <section class="student-seat">
+
+  </section>
+
+  <section class="charactor">
+
+  </section>
+
+  <section class="material"> 
+  <!-- 준비물 -->
+
+  </section>
+
+</article>
+
+
+
+
+
+
+
+<!-----------------------------------------------자바스크립트--------------------------------------------------->
+<script>
+  var i = 0;
+    $('i').on('click',function(){
+        if(i==0){
+            $(this).attr('class','bi-heart-fill');
+            i++;
+        }else if(i==1){
+            $(this).attr('class','bi-heart');
+            i--;
+        }
+
+    });
+
+$(document).ready(function() {
+    var i = 0;
+    $("#plusButton").click(function() {
+      // ".classbox"를 복제하여 추가합니다.
+      var clonedBox = $(".class-box").first().clone();
+      // 복제된 박스 안에 있는 교시 번호를 갱신합니다.
+
+     // 시간 관련 함수
+     function time(i) {
+    const times = ["09:50", "10:50", "12:30", "01:20", "02:00", "02:50"];
+    return i < times.length ? times[i] : null;   // 3항 연산자
+    }
+      clonedBox.find("#timeFont").text(i+2 + "교시 " + time(i));
+
+      var iconClone = clonedBox.find(".bi-heart").clone();
+      clonedBox.find(".first-check").empty().append(iconClone);
+
+      // 복제된 박스를 기존 .classbox 바로 아래에 추가합니다.
+      $(".time-line").append(clonedBox);
+      i++;
+
+      // 복제된 하트에 대한 클릭 이벤트 처리
+      handleHeartClick(clonedBox);
+
+      var newTop = 50; // 간격을 조절하여 원하는 위치 설정
+      newTop += i*105;
+      clonedBox.find(".first-check").css({ top: newTop + "px" });
+    });
+
+    function handleHeartClick(box) {
+      box.find('i').off('click').on('click', function() {
+        if ($(this).hasClass('bi-heart')) {
+          $(this).attr('class', 'bi-heart-fill');
+        } else if ($(this).hasClass('bi-heart-fill')) {
+          $(this).attr('class', 'bi-heart');
+        }
+      });
+    }
+
+    // 초기화 단계에서도 클릭 이벤트 처리
+    handleHeartClick($(".classbox"));
+  });
+//  --------------------------------------------------------------------------------------------시간표 조정
+var SetTime = 600; // 최초 설정 시간(기본 : 초)
+  var tid; // 타이머 ID
+
+  function formatTime(time) {
+  return time < 10 ? "0" + time : time;
+}
+
+function msg_time() {
+  var minutes = Math.floor(SetTime / 60);
+  var seconds = SetTime % 60;
+
+  var formattedMinutes = formatTime(minutes);
+  var formattedSeconds = formatTime(seconds);
+
+  var msg = formattedMinutes + " : " + formattedSeconds;
+    
+    // 남은 시간이 3분 이하일 때 클래스 추가하여 빨간색으로 변경
+    if (SetTime <= 180) {
+      document.getElementById('viewTimer').classList.add('red-text');
+    }
+
+    document.getElementById('viewTimer').innerHTML = msg; // div 영역에 보여줌
+    SetTime--; // 1초씩 감소
+
+    if (SetTime < 0) {
+      clearInterval(tid); // 타이머 해제
+      alert("종료");
+    }
+  }
+
+  window.onload = function TimerStart() {
+    tid = setInterval(msg_time, 1000);
+  };
+  // -----------------------------------------------------------------------타이머
+
+</script>
+</body>
+</html>

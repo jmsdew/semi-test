@@ -1,0 +1,248 @@
+@font-face{
+  font-family:'bitbit';
+  src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+}
+html{
+  scroll-behavior: smooth;
+}
+a, a:link, a:visited{
+  color: inherit;
+  text-decoration: none;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:'bitbit';
+  background-color: rgba(6,97,26,1);
+}
+/*************************************************네비 바******************************************************/
+li{
+  list-style: none;
+}
+header .navbox{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 0%;
+  
+}
+header{
+  position: fixed;
+  color: white;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 0;
+
+}
+header nav{
+  display: flex;
+  justify-content:space-between;
+  align-items:top;
+  width: 100%;
+}
+header nav ul{
+  display: flex;
+  align-items: top;
+}
+header nav ul li{
+  padding-left: 10px;
+  padding-top: 0;
+}
+header button{
+  background:transparent;
+  border: 0;
+  cursor: pointer;
+  background-color: rgba(0,47,4,1);
+  width: 230px;
+  height: 70px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+header h1 button{
+  font-size: 70px;
+  color: rgba(255,225,80,1);
+  background-color: rgba(6,97,26,1);
+  width: 500px;
+  height: 100px;
+  text-align: left;
+  padding-left: 1rem;
+}
+header nav ul li button{
+  font-size: 35px;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0,47,4,1);
+  overflow: hidden;
+}
+header nav ul li button a{
+  background-color: rgba(0,47,4,1);
+}
+/********************************************시간표 제작************************************************/
+
+.time-line{
+  width: 400px;
+  height: 780px;
+  background-color: rgba(255,225,80,1);
+  opacity: 1;
+  position: absolute;
+  top: 165px;
+  left: 0;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+  border: 10px solid white;
+  border-left: 0px;
+}
+.class-box {
+  width: 350px;
+  height: 75px;
+  background-color: rgba(255,225,80,1);
+  margin-top: 30px;
+  margin-left: 10px;
+  left: 20px;
+  align-items: center;
+}
+
+.first-class{
+  width: 270px;
+  height: 75px;
+  background-color: rgba(254,239,197,1);
+  opacity: 1;
+  position: absolute;
+  border: 1px solid rgba(254,239,197,1);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+}
+.first-check{
+  width: 60px;
+  height: 50px;
+  opacity: 1;
+  background-color: rgba(255,225,80,1);
+  position: absolute;
+  left: 300px;
+  top: 50px;
+
+}
+.bi-heart{
+  background-color: rgba(255,225,80,1);
+}
+.bi-heart-fill {
+  background-color: rgba(255,225,80,1);
+}
+.bi-plus-lg {
+  background-color: rgba(254,239,197,1);
+}
+p {
+  font-size: 35px;
+}
+#plusButton{
+  width: 300px;
+  height: 50px;
+  background-color: rgba(255,225,80,1);
+  opacity: 1;
+  position: absolute;
+  top: 720px;
+  left: 30px;
+  border: 1px solid  rgba(255,225,80,1);
+  overflow: hidden;
+  font-size: 20px;
+  align-items: center;
+}
+#timeFont {
+  width: 270px;
+  height: 75px;
+  color: rgba(0,0,0,1);
+  top: 61px;
+  left: 53px;
+  font-weight: bold;
+  font-size: 35px;
+  opacity: 1;
+  text-align: center;
+  background-color: rgba(254,239,197,1); 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/****************************************************메인 화면*********************************************************/
+.main-view {
+  width: 75.5%;
+  height: 780px;
+  background-color: rgba(255,225,80,1);
+  opacity: 1;
+  position: relative;
+  top: 165px;
+  left: 474px;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  overflow: hidden;
+  border: 10px solid white;
+  border-right: 0px;
+}
+.stop-watch {
+  width: 100%;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  top: 9px;
+  left: 15px;
+  overflow: hidden;
+  background-color: rgba(255,225,80,1);
+  border-bottom: 2px solid white;
+}
+
+.period {
+  width: 600px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+  background-color: rgba(255,225,80,1);
+
+}
+.period-text {
+  width: 600px;
+  height: 120px;
+  font-size: 80px;
+  position: relative;
+  color: rgba(0,47,4,1);
+  top: 7px;
+  left: 100px;
+  text-align: center;
+  align-items: center;
+  background-color: rgba(255,225,80,1);
+}
+.timer {
+  width: 600px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 600px;
+  background-color: rgba(255,225,80,1);
+}
+#viewTimer {
+  width: 600px;
+  height: 120px;
+  position: absolute;
+  background-color: rgba(255,225,80,1);
+  font-size: 80px;
+  top: 7px;
+}
+.red-text {
+  color: red;
+}
