@@ -68,26 +68,58 @@
   </section>
   
   <section class="school-info">
-    
+    <div></div>
   </section>
   
   <section class="student-seat">
 
   </section>
 
-  <section class="charactor">
+  <section class="study-ment">
+    <p>공부할 준비가 되었나요?</p>
+  </section>
 
+  <section class="charactor">
+    <img id="image" src="image/v23_24.png">
   </section>
 
   <section class="material"> 
   <!-- 준비물 -->
-
+  <input class="textbook-text" type="text">
+  <div class="textbook">교과서</div>
+    <input class="material-text" type="text">
+    <div class="material-ment">준비물</div>
+    <input class="page-text" type="text">
+    <div class="page">쪽</div>
   </section>
 
 </article>
+<!-----------------------------------종소리 작업------------------------------------------->
 
+  <footer class="bell-sound">
+    <div class="bell-sound-icon"><img class="bell-sound-icon" src="image/bell.png"> </div>
+    <div class="bell-sound-ment">우리반 수업 종소리</div>
+    <div class="first-bell">
+      <button type="button" class="first-bell-click" value="PLAY" onclick="play1()">학교종</button>
+      <audio id="audio1" src="media/music1.mp3"></audio>
+    </div>
+    <div class="two-bell">
+      <button class="two-bell-click"></button>
+    </div>
+    <div class="three-bell">
+      <button class="three-bell-click"></button>
+    </div>
+    <div class="four-bell">
+      <button class="four-bell-click"></button>
+    </div>
+    <div class="five-bell">
+      <button class="five-bell-click"></button>
+    </div>
+    <div class="six-bell">
+      <button class="six-bell-click"></button>
+    </div>
 
-
+  </footer>
 
 
 
@@ -183,6 +215,11 @@ function msg_time() {
     tid = setInterval(msg_time, 1000);
   };
   // -----------------------------------------------------------------------타이머
+
+  function play1(){
+    let audio = document.getElementById("1번종소리");
+    audio.play();
+  }
 
 </script>
 </body>
