@@ -252,6 +252,112 @@ p {
   background-color: rgba(255,225,80,1);
   border-bottom: 2px solid white;
 }
+.school-name {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255,225,80,1);
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 10px;
+}
+.school-name-name {
+  width: 700px;
+  font-size: 40px;
+  background-color: rgba(255,225,80,1);
+  word-spacing:2px;
+}
+.school-name-rank {
+  width: 450px;
+  font-size: 40px;
+  background-color: rgba(255,225,80,1);
+  word-spacing:2px;
+}
+/********************************************좌석*********************************************************/
+
+.student-seat {
+  width: 820px;
+  height: 560px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  overflow: hidden;
+  background-color: rgba(255,225,80,1);
+}
+.student-1 {
+  width: 140px;
+  height:60px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border: 5px solid rgba(77,161,85,1);
+  border-radius: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+.student-2 {
+  width: 140px;
+  height: 60px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  top: 10px;
+  left: 160px;
+  position: absolute;
+  border: 5px solid rgba(77,161,85,1);
+  border-radius: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+.student-3 {
+  width: 140px;
+  height: 60px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  left: 310px;
+  top: 10px;
+  position: absolute;
+  border: 5px solid rgba(77,161,85,1);
+  border-radius: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+.student-4 {
+  width: 140px;
+  height: 60px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  left: 460px;
+  top: 10px;
+  position: absolute;
+  border: 5px solid rgba(77,161,85,1);
+  border-radius: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+.student-5 {
+  width: 140px;
+  height: 60px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  left: 610px;
+  top: 10px;
+  position: absolute;
+  border: 5px solid rgba(77,161,85,1);
+  border-radius: 30px;
+  font-size: 50px;
+  text-align: center;
+}
+
+
+
+
+
+/********************************************이미지,교과서,준비물*********************************************************/
 .study-ment {
   width: 400px;
   height: 50px;
@@ -386,6 +492,8 @@ p {
   font-size: 35px;
   text-align: center;
 }
+
+
 /************************************** 종소리 *****************************************/
 .bell-sound {
   width: 100%;
@@ -558,9 +666,10 @@ p {
   width: 180px;
   height: 50px;
   position: absolute;
-  font-size: 32px;
+  font-size: 30px;
   opacity: 1;
   text-align: center;
   background: rgba(255,255,255,1);
   border: 1px solid rgba(254,239,197,1);
+  cursor: pointer;
 }
