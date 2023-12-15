@@ -167,7 +167,9 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid  rgba(255,225,80,1);
 }
+
 /****************************************************메인화면 타이머*********************************************************/
 .main-view {
   width: 75.5%;
@@ -244,6 +246,17 @@ p {
 }
 .red-text {
   color: red;
+}
+.start-button {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  font-size: 40px;
+  top: 7px;
+  left: 900px;
+  cursor: pointer;
+  background-color: rgba(255,225,80,1);
+  border: none;
 }
 /**********************************************메인화면 학교정보************************************************/
 .school-info {
@@ -493,6 +506,10 @@ p {
   text-align: center;
 }
 
+/****************************************종소리,이미지,자리 변경 팝업******************************************/
+.show-modal {
+  display: block; /* 또는 필요한 스타일 설정 */
+}
 
 /************************************** 종소리 *****************************************/
 .bell-sound {
@@ -542,15 +559,35 @@ p {
   border-bottom-right-radius: 100px;
   overflow: hidden;
 }
-.first-bell-click {
+.bell-click {
   width: 180px;
   height: 50px;
   position: absolute;
-  font-size: 32px;
+  font-size: 30px;
   opacity: 1;
-  text-align: center;
+  text-align: left;
   background: rgba(255,255,255,1);
   border: 1px solid rgba(254,239,197,1);
+}
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  outline: none;
+  margin-right: 10px; /* 간격을 주기 위해 조절할 수 있습니다. */
+  background-color: rgba(255,225,80,1);
+}
+
+input[type="radio"]:checked {
+  background-color: #4CAF50; /* 선택 시 배경색을 녹색으로 변경 */
+}
+#radio1, #radio2,#radio3,#radio4,#radio5{
+  width: 30px;
+  height: 30px;
+  border: none;
 }
 .two-bell {
   width: 180px;
@@ -566,16 +603,7 @@ p {
   border-bottom-right-radius: 100px;
   overflow: hidden;
 }
-.two-bell-click {
-  width: 180px;
-  height: 50px;
-  position: absolute;
-  font-size: 32px;
-  opacity: 1;
-  text-align: center;
-  background: rgba(255,255,255,1);
-  border: 1px solid rgba(254,239,197,1);
-}
+
 .three-bell {
   width: 180px;
   height: 50px;
@@ -590,16 +618,7 @@ p {
   border-bottom-right-radius: 100px;
   overflow: hidden;
 }
-.three-bell-click {
-  width: 180px;
-  height: 50px;
-  position: absolute;
-  font-size: 32px;
-  opacity: 1;
-  text-align: center;
-  background: rgba(255,255,255,1);
-  border: 1px solid rgba(254,239,197,1);
-}
+
 .four-bell {
   width: 180px;
   height: 50px;
@@ -614,16 +633,7 @@ p {
   border-bottom-right-radius: 100px;
   overflow: hidden;
 }
-.four-bell-click {
-  width: 180px;
-  height: 50px;
-  position: absolute;
-  font-size: 32px;
-  opacity: 1;
-  text-align: center;
-  background: rgba(255,255,255,1);
-  border: 1px solid rgba(254,239,197,1);
-}
+
 .five-bell {
   width: 180px;
   height: 50px;
@@ -638,17 +648,8 @@ p {
   border-bottom-right-radius: 100px;
   overflow: hidden;
 }
-.five-bell-click {
-  width: 180px;
-  height: 50px;
-  position: absolute;
-  font-size: 32px;
-  opacity: 1;
-  text-align: center;
-  background: rgba(255,255,255,1);
-  border: 1px solid rgba(254,239,197,1);
-}
-.six-bell {
+
+.show-popup {
   width: 180px;
   height: 50px;
   background: rgba(255,255,255,1);
@@ -661,8 +662,9 @@ p {
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
   overflow: hidden;
+  cursor: pointer;
 }
-.six-bell-click {
+.popup-click {
   width: 180px;
   height: 50px;
   position: absolute;

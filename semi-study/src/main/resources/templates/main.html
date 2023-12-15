@@ -46,7 +46,7 @@
   <div class="time-line">
     <div class="class-box">
       <div class="first-class">
-        <p id="timeFont">1교시 09:00</p>
+        <input type="text" id="timeFont" value="1교시 09:00"/>
       </div>
       <div class="first-check" id="showHide"><i class="bi-heart" style="font-size:3rem; color: red; cursor: pointer;"></i></div>
     </div>
@@ -65,6 +65,10 @@
           <div id="viewTimer"></div>
       </h2>
   </div>
+
+    <div class="time-start-button">
+      <button class="start-button">시작</button>
+    </div>
   </section>
   <!----------------------------------------------------%%%%쿼리문 수정하기 ( div 떼고 회원정보 연결)%%%%---------------------------------------------->
   <section class="school-info">
@@ -100,22 +104,27 @@
     <div class="bell-sound-icon"><img class="bell-sound-icon" src="image/bell.png"> </div>
     <div class="bell-sound-ment">우리반 수업 종소리</div>
     <div class="first-bell">
-      <button type="button" class="first-bell-click" value="PLAY" onclick="play1()">1번 학교종</button>
+      <input type="radio" name="sound" id="radio1" onclick="handleRadioClick('media/music1.mp3')"> <label for="radio1"></label>
+      <button type="button" class="bell-click" value="PLAY" onclick="playSound()">1번 학교종</button>
     </div>
     <div class="two-bell">
-      <button type="button" class="two-bell-click" value="PLAY" onclick="play2()">2번 학교종</button>
+      <input type="radio" name="sound" id="radio2" onclick="handleRadioClick('media/2번종소리.mp3')"> <label for="radio2"></label>
+      <button type="button" class="bell-click" value="PLAY" onclick="playSound()">2번 학교종</button>
     </div>
     <div class="three-bell">
-      <button type="button" class="three-bell-click" value="PLAY" onclick="play3()">3번 학교종</button>
+      <input type="radio" name="sound" id="radio3" onclick="handleRadioClick('media/3번종소리.mp3')"> <label for="radio3"></label>
+      <button type="button" class="bell-click" value="PLAY" onclick="playSound()">3번 학교종</button>
     </div>
     <div class="four-bell">
-      <button type="button" class="four-bell-click" value="PLAY" onclick="play4()">4번 학교종</button>
+      <input type="radio" name="sound" id="radio4" onclick="handleRadioClick('media/4번종소리.mp3')"> <label for="radio4"></label>
+      <button type="button" class="bell-click" value="PLAY" onclick="playSound()">4번 학교종</button>
     </div>
     <div class="five-bell">
-      <button type="button" class="five-bell-click" value="PLAY" onclick="play5()">군가</button>
+      <input type="radio" name="sound" id="radio5" onclick="handleRadioClick('media/전우.mp4')"> <label for="radio5"></label>
+      <button type="button" class="bell-click" value="PLAY" onclick="playSound()">5번 학교종</button>
     </div>
-    <div class="six-bell">
-      <input type="button" class="six-bell-click" onclick="showPopup()" value="설정"/>
+    <div class="show-popup">
+      <button type="button" class="popup-click" value="PLAY" onclick="showPopup()">설정</button>
     </div>
 
   </footer>
@@ -125,7 +134,7 @@
 
 <!-----------------------------------------------자바스크립트--------------------------------------------------->
 <script>
-  var i = 0;
+  let i = 0;
     $('i').on('click',function(){
         if(i==0){
             $(this).attr('class','bi-heart-fill');
@@ -149,7 +158,7 @@ $(document).ready(function() {
     const times = ["09:50", "10:50", "12:30", "01:20", "02:00", "02:50"];
     return i < times.length ? times[i] : null;   // 3항 연산자
     }
-      clonedBox.find("#timeFont").text(i+2 + "교시 " + time(i));
+      clonedBox.find("#timeFont").val(i+2 + "교시 " + time(i));
 
       let iconClone = clonedBox.find(".bi-heart").clone();
       clonedBox.find(".first-check").empty().append(iconClone);
@@ -180,11 +189,10 @@ $(document).ready(function() {
     handleHeartClick($(".classbox"));
   });
 //  --------------------------------------------------------------------------------------------타이머조정
-  let SetTime = 600; // 최초 설정 시간(기본 : 초)
+  let SetTime = 600; // 테스트를 위해 시간을 10초로 설정
   let tid; // 타이머 ID
-
-  // 오디오 요소 생성
-  let audio = new Audio('media/music1.mp3');
+  let audio = new Audio();
+  let selectedSound = null;
 
   function formatTime(time) {
     return time < 10 ? "0" + time : time;
@@ -199,24 +207,45 @@ $(document).ready(function() {
 
     let msg = formattedMinutes + " : " + formattedSeconds;
 
-    // 남은 시간이 3분 이하일 때 클래스 추가하여 빨간색으로 변경
-    if (SetTime <= 180) {
+    if (SetTime <= 3) { // 3초 이하일 때 클래스 추가하여 빨간색으로 변경
       document.getElementById('viewTimer').classList.add('red-text');
     }
 
-    document.getElementById('viewTimer').innerHTML = msg; // div 영역에 보여줌
-    SetTime--; // 1초씩 감소
+    document.getElementById('viewTimer').innerHTML = msg;
+    SetTime--;
 
     if (SetTime < 0) {
-      clearInterval(tid); // 타이머 해제
-      // 타이머가 0이 되면 음악 재생
-      audio.play();
+      clearInterval(tid);
+      playSound();
     }
   }
 
-  window.onload = function TimerStart() {
+  function TimerStart() {
     tid = setInterval(msg_time, 1000);
+  }
+
+  function playSound() {
+    if (selectedSound !== null) {
+      audio.src = selectedSound;
+      audio.play();
+    }
+  }
+  $(".start-button").click(function () {
+    clearInterval(tid); // 타이머 해제
+    SetTime = 600; // 초기 설정 시간으로 되돌림
+    document.getElementById('viewTimer').classList.remove('red-text'); // 빨간색 클래스 제거
+    TimerStart(); // 타이머 재시작
+  });
+
+  function handleRadioClick(sound) {
+    selectedSound = sound;
+  }
+
+  window.onload = function () {
+    TimerStart();
   };
+
+
   // -----------------------------------------------------------------------타이머
 
   function play1(){
@@ -245,7 +274,7 @@ $(document).ready(function() {
   }
 /**************************************** 설정버튼 만들기 ******************************************************/
 function showPopup(){
-  window.open("popup-first.html", "a", "width=550, height=600, left=550, top=150")
+  window.open("popup/popup-first.html", "a", "width=550, height=600, left=550, top=150")
 }
 
 /***********************************************************************************************/
