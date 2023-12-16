@@ -124,8 +124,19 @@
       <button type="button" class="bell-click" value="PLAY" onclick="playSound()">5번 학교종</button>
     </div>
     <div class="show-popup">
-      <button type="button" class="popup-click" value="PLAY" onclick="showPopup()">설정</button>
+      <button type="button" class="popup-click" id="popupClick">설정</button>
     </div>
+
+    <div class="popup">
+      <h3>옵션 선택</h3>
+      <div class="content"></div>
+      <div class="buttons">
+        <button>종소리변경</button>
+        <button>이미지변경</button>
+        <button>좌석초기화</button>
+      </div>
+    </div>
+
 
   </footer>
 
@@ -273,9 +284,17 @@ $(document).ready(function() {
     audio.play();
   }
 /**************************************** 설정버튼 만들기 ******************************************************/
-function showPopup(){
-  window.open("popup/popup-first.html", "a", "width=550, height=600, left=550, top=150")
-}
+
+  document.getElementById('popupClick').addEventListener('click', function() {
+    document.querySelector('.popup').style.display = 'block';
+  });
+
+  document.addEventListener('click', function (event) {
+    if (event.target !== document.querySelector('.popup') && !document.querySelector('.popup').contains(event.target) && event.target !== document.getElementById('popupClick')) {
+      document.querySelector('.popup').style.display = 'none';
+    }
+  });
+
 
 /***********************************************************************************************/
 </script>
