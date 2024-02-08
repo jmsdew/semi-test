@@ -577,10 +577,7 @@ input[type="radio"]:checked {
   position: absolute;
   top: 15px;
   left: 1650px;
-  border-top-left-radius: 100px;
-  border-top-right-radius: 100px;
-  border-bottom-left-radius: 100px;
-  border-bottom-right-radius: 100px;
+  border-radius: 100px;
   overflow: hidden;
   cursor: pointer;
 }

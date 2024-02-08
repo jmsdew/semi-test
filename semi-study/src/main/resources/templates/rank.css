@@ -1,0 +1,231 @@
+.rank {
+    width: 1720px;
+    height: 800px;
+    background: rgba(255,225,80,1);
+    opacity: 1;
+    position: relative;
+    top: 180px;
+    left: 100px;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 5px solid white;
+}
+.rank-total {
+    width: 700px;
+    height: 700px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    overflow: hidden;
+    border-radius: 30px;
+    background-color: white;
+}
+.rank-main {
+    width: 700px;
+    height: 85px;
+    background: rgba(255,255,255,1);
+    opacity: 1;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    overflow: hidden;
+}
+.rank-main-1 {
+    width: 600px;
+    height: 100px;
+    color : rgba(7,98,27,1);
+    background-color: white;
+    position: absolute;
+    top: 5px;
+    left: 50px;
+    font-size: 50px;
+    opacity: 1;
+    text-align: center;
+}
+.category-button {
+    width: 70px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: white;
+    opacity: 1;
+    position: absolute;
+    top: 24px;
+    left: 50px;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+.category-button-1 {
+    width: 70px;
+    height: 40px;
+    background-color: white;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.student-button {
+    width: 70px;
+    height: 40px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-color: white;
+    opacity: 1;
+    position: absolute;
+    top: 24px;
+    left: 580px;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid black;
+}
+.student-button-1 {
+    width: 70px;
+    height: 40px;
+    background-color: white;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+.ranking-page {
+    width: 600px;
+    height: 560px;
+    position: absolute;
+    background-color: white;
+    top: 100px;
+    left: 50px;
+}
+.ranking-page-1 {
+    width: 80px;
+    position: absolute;
+    top: 5px;
+    left: 50px;
+    color: rgba(7,98,27,1);;
+    font-size: 40px;
+    opacity: 1;
+    background-color: white;
+}
+.ranking-page-2 {
+    width: 80px;
+    position: absolute;
+    top: 5px;
+    left: 250px;
+    color: rgba(7,98,27,1);;
+    font-size: 40px;
+    opacity: 1;
+    background-color: white;
+}
+.ranking-page-3 {
+    width: 80px;
+    position: absolute;
+    top: 5px;
+    left: 450px;
+    color: rgba(7,98,27,1);;
+    font-size: 40px;
+    opacity: 1;
+    background-color: white;
+}
+
+#studenttb {
+    background-color: white;
+}
+#studenttb2 {
+    background-color: white;
+}
+.rank-winner {
+    width: 860px;
+    height: 400px;
+    opacity: 1;
+    position: absolute;
+    top: 50px;
+    left: 800px;
+    border-radius: 30px;
+    overflow: auto;
+    background-color: white;
+    word-spacing: 300px;
+}
+.rank-box{
+    width: 860px;
+    height: 60px;
+    opacity: 1;
+    position: relative;
+    background-color: white;
+    text-align: left;
+    left: 50px;
+    font-size: 40px;
+    color: rgba(7,98,27,1);
+    word-spacing: 0;
+}
+.rank-winner-1 {
+    width: 860px;
+    height: 70px;
+    opacity: 1;
+    position: relative;
+    background-color: white;
+    font-size: 40px;
+    text-align: justify;
+    left: 30px;
+}
+#trophy {
+    background-color: white;
+    color: #FFE150;
+}
+.rank-platform {
+    width: 860px;
+    height: 399px;
+    background: url("image/platform.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    opacity: 1;
+    position: absolute;
+    top: 400px;
+    left: 817px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    overflow: hidden;
+}
+.first-rank {
+    width: 200px;
+    color: rgba(206,156,30,1);
+    position: absolute;
+    top: 120px;
+    left: 330px;
+    font-size: 60px;
+    opacity: 1;
+    text-align: center;
+    background: rgba(255,225,80,1);
+}
+.second-rank {
+    width: 200px;
+    color: rgba(182,182,182,1);
+    position: absolute;
+    top: 140px;
+    left: 90px;
+    font-size: 60px;
+    opacity: 1;
+    text-align: center;
+    background: rgba(255,225,80,1);
+}
+.third-rank {
+    width: 200px;
+    color: rgba(206,156,30,1);
+    position: absolute;
+    top: 160px;
+    left: 560px;
+    font-size: 60px;
+    opacity: 1;
+    text-align: center;
+    background: rgba(255,225,80,1);
+}
+
+

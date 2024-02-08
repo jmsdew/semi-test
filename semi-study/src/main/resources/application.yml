@@ -6,5 +6,4 @@ spring:
     password: kbj
 
 mybatis:
-  mapper-locations: classpath:resources/mapper/**/*.xml
-  config-location: classpath:mapper/mapper-config.xml
+  mapper-locations: classpath:resources/mapper/*.xml

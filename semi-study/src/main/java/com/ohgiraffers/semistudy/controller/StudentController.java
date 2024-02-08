@@ -14,6 +14,11 @@ import java.util.List;
 @RequestMapping("/")
 public class StudentController {
 
+    @GetMapping("/")
+    public String main(){
+        return "index";
+    }
+
     @Autowired
     private StudentService service;
 

@@ -4,19 +4,20 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ohgiraffers.semistudy.model.UserDAO">
     
-    <resultMap id="userResult" type="com.ohgiraffers.semistudy.dto.SchoolDTO">
-            <id property="code" column="student_code"/>
+    <resultMap id="userResult" type="com.ohgiraffers.semistudy.dto.RankDTO">
             <result property="name" column="student_name"/>
-            <result property="userCode" column="user_code"/>
-            <result property="status" column="student_status"/>
-            <result property="regist_date" column="regist_date"/>
+            <result property="grade" column="score"/>
+
     </resultMap>
 
     <select id="selectAllStudent" resultMap="userResult">
-            SELECT
-                *
-              FROM STUDENT
-            STUDENT_STATUS='Y'
+        SELECT
+            a.student_name,
+            sum(b.score) AS score
+          FROM student a
+          JOIN praise b ON (a.student_code = b.student_code)
+         GROUP BY a.student_name
+         ORDER BY score DESC;
     </select>
 
 
